@@ -30,7 +30,6 @@ class RestaurantTest {
 
         long sumOfTime = restaurant.openingTime.toNanoOfDay()+restaurant.closingTime.toNanoOfDay();
         LocalTime openingRestaurantTime = LocalTime.ofNanoOfDay(sumOfTime/2);
-        System.out.println(openingRestaurantTime);
         Restaurant spyRestaurant = Mockito.spy(restaurant);
         doReturn(openingRestaurantTime).when(spyRestaurant).getCurrentTime();
         assertTrue(spyRestaurant.isRestaurantOpen());
@@ -41,8 +40,8 @@ class RestaurantTest {
     @Test
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
         Restaurant spyRestaurant = Mockito.spy(restaurant);
-        LocalTime wrong_time = LocalTime.parse("24:00:00");
-        doReturn(wrong_time).when(spyRestaurant).getCurrentTime();
+        LocalTime wrongTime = LocalTime.parse("24:00:00");
+        doReturn(wrongTime).when(spyRestaurant).getCurrentTime();
         assertFalse(spyRestaurant.isRestaurantOpen());
     }
 
@@ -73,3 +72,4 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 }
+

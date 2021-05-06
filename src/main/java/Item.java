@@ -19,4 +19,10 @@ public class Item {
                 + "\n"
                 ;
     }
+
+
+    public int getItemPrice(){
+        return price;
+    }
+
 }

@@ -20,4 +20,9 @@ public class Item {
                 ;
     }
 
+    public int getItemPrice(){
+        return price;
+    }
+
+
 }

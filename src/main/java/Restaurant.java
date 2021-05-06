@@ -71,4 +71,17 @@ public class Restaurant {
         return location;
     }
 
+    //New Method Added
+    public int calculatingOrderValue(String...itemNames) throws itemNotFoundException {
+        int orderPrice = 0;
+        for(String itemName: itemNames){
+            Item item = findItemByName(itemName);
+            if(item == null)
+                throw new itemNotFoundException(itemName);
+            orderPrice = orderPrice + item.getItemPrice();
+        }
+        return orderPrice;
+    }
+
+
 }
